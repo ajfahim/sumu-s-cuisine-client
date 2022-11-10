@@ -4,7 +4,7 @@
 > # Git Repo for API:  
 > # Live API:  
 
-Sumu's Cuisine is a dummy website for home made food build with **React** and some other **React Libraries**
+Sumu's Cuisine is a dummy website for home made cake build with **React** and some other **React Libraries**
 
 # Features
 - Firebase authentication (password, google, github)
