@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat&family=Roboto+Mono:wght@400;700&display=swap');
+
+.banner {
+    background-image: url('../../../../assets/banner1.jpg');
+
+    min-height: 70vh;
+    background-repeat: no-repeat;
+    object-fit: fill;
+    background-position: center;
+    color: white;
+
+}
+
+.c-font {
+    font-family: 'Caveat', cursive;
+}
+
+.c-font-h3 {
+    font-family: 'Roboto Mono', monospace;
+}

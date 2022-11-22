@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { FcGoogle } from "react-icons/fc";
 
 import { Link } from 'react-router-dom';
@@ -52,66 +53,71 @@ const Registration = () => {
     }
 
     return (
-        <div className="hero my-20">
-            <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                <div className="card-body">
-                    <h2 className='text-center font-bold text-5xl'>Registration</h2>
+        <>
+            <Helmet>
+                <title>Sumu's Cuisine-Registration</title>
+            </Helmet>
+            <div className="hero my-20">
+                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                    <div className="card-body">
+                        <h2 className='text-center font-bold text-5xl'>Registration</h2>
 
-                    <form onSubmit={handleSignUp}>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Email</span>
-                            </label>
-                            <input type="email" name='email' required placeholder="email" className="input input-bordered" />
-                        </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Name</span>
-                            </label>
-                            <input type="text" name='name' required placeholder="name" className="input input-bordered" />
-                        </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Photo url</span>
-                            </label>
-                            <input type="text" name='photoUrl' placeholder="photo url" className="input input-bordered" />
-                        </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Password</span>
-                            </label>
-                            <input type="password" placeholder="password" name='password' required className="input input-bordered" />
+                        <form onSubmit={handleSignUp}>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Email</span>
+                                </label>
+                                <input type="email" name='email' required placeholder="email" className="input input-bordered" />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Name</span>
+                                </label>
+                                <input type="text" name='name' required placeholder="name" className="input input-bordered" />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Photo url</span>
+                                </label>
+                                <input type="text" name='photoUrl' placeholder="photo url" className="input input-bordered" />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Password</span>
+                                </label>
+                                <input type="password" placeholder="password" name='password' required className="input input-bordered" />
 
-                        </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text text-red-500">
-                                    {
-                                        error && error
-                                    }
-                                </span>
-                            </label>
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text text-red-500">
+                                        {
+                                            error && error
+                                        }
+                                    </span>
+                                </label>
 
 
-                        </div>
-                        <div className="form-control mt-6">
-                            <button className="btn btn-error">Register</button>
-                        </div>
-                    </form>
+                            </div>
+                            <div className="form-control mt-6">
+                                <button className="btn btn-error">Register</button>
+                            </div>
+                        </form>
 
-                    <div className=' text-center my-3'>
-                        <p>OR</p>
-                        <div className='flex justify-around items-center my-3'>
-                            <button onClick={handleGoogleLogin} className="btn btn-outline w-full"> Register with <FcGoogle className='ml-2' ></FcGoogle></button>
+                        <div className=' text-center my-3'>
+                            <p>OR</p>
+                            <div className='flex justify-around items-center my-3'>
+                                <button onClick={handleGoogleLogin} className="btn btn-outline w-full"> Register with <FcGoogle className='ml-2' ></FcGoogle></button>
 
-                        </div>
-                        <div>
-                            Already have an account? <span className='text-bold text-orange-600'><Link to='/login'>Login</Link></span>
+                            </div>
+                            <div>
+                                Already have an account? <span className='text-bold text-orange-600'><Link to='/login'>Login</Link></span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </>
 
     );
 };

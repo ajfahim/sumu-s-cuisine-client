@@ -1,4 +1,5 @@
 import React, { useContext, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { FcGoogle } from "react-icons/fc";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
@@ -46,57 +47,62 @@ const Login = () => {
     }
 
     return (
-        <div className="hero my-20">
+        <>
+            <Helmet>
+                <title>Sumu's Cuisine-Login</title>
+            </Helmet>
+            <div className="hero my-20">
 
 
-            <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                <div className="card-body">
-                    <h2 className='text-center font-bold text-5xl'>Login</h2>
+                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                    <div className="card-body">
+                        <h2 className='text-center font-bold text-5xl'>Login</h2>
 
-                    <form onSubmit={handleLogin}>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Email</span>
-                            </label>
-                            <input type="email" name='email' required placeholder="email" className="input input-bordered" />
-                        </div>
+                        <form onSubmit={handleLogin}>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Email</span>
+                                </label>
+                                <input type="email" name='email' required placeholder="email" className="input input-bordered" />
+                            </div>
 
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text">Password</span>
-                            </label>
-                            <input type="password" placeholder="password" name='password' required className="input input-bordered" />
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Password</span>
+                                </label>
+                                <input type="password" placeholder="password" name='password' required className="input input-bordered" />
 
-                        </div>
-                        <div className="form-control">
-                            <label className="label">
-                                <span className="label-text text-red-500">
-                                    {
-                                        error && error
-                                    }
-                                </span>
-                            </label>
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text text-red-500">
+                                        {
+                                            error && error
+                                        }
+                                    </span>
+                                </label>
 
 
-                        </div>
-                        <div className="form-control mt-6">
-                            <button className="btn btn-error">Login</button>
-                        </div>
-                    </form>
+                            </div>
+                            <div className="form-control mt-6">
+                                <button className="btn btn-error">Login</button>
+                            </div>
+                        </form>
 
-                    <div className=' text-center my-3'>
-                        <p>OR</p>
-                        <div className='flex justify-around items-center my-3'>
-                            <button onClick={handleGoogleLogin} className="btn btn-outline w-full"> Login with <FcGoogle className='ml-2' ></FcGoogle></button>
+                        <div className=' text-center my-3'>
+                            <p>OR</p>
+                            <div className='flex justify-around items-center my-3'>
+                                <button onClick={handleGoogleLogin} className="btn btn-outline w-full"> Login with <FcGoogle className='ml-2' ></FcGoogle></button>
 
-                        </div>
-                        <div>
-                            New to this site? <span className='text-bold text-orange-600'><Link to='/register'>Register</Link></span>
+                            </div>
+                            <div>
+                                New to this site? <span className='text-bold text-orange-600'><Link to='/register'>Register</Link></span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 };
 

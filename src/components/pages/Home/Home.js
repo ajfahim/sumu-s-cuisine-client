@@ -1,13 +1,16 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import Banner from './Banner/Banner';
+import Story from './Story/Story';
 
 const Home = () => {
     return (
-        <div>
+        <div className='w-4/5 mx-auto'>
             <Helmet>
                 <title>Sumu's Cuisine-Home</title>
             </Helmet>
-            <h1>This is home</h1>
+            <Banner></Banner>
+            <Story></Story>
         </div>
     );
 };
