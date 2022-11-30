@@ -3,16 +3,22 @@ import { Helmet } from 'react-helmet-async';
 import { FcGoogle } from "react-icons/fc";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
+import useToken from '../../../hooks/useToken';
 
 const Login = () => {
 
     const { signIn, googleLogin } = useContext(AuthContext);
-    const [error, setError] = useState(null)
+    const [error, setError] = useState(null);
+    const [loginEmail, setLoginEmail] = useState('')
+    const [token] = useToken(loginEmail)
 
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
 
+    if (token) {
+        navigate(from, { replace: true });
+    }
     const handleLogin = (event) => {
         event.preventDefault();
         const form = event.target;
@@ -24,7 +30,7 @@ const Login = () => {
                 setError(null)
                 console.log(user);
                 form.reset();
-                navigate(from, { replace: true })
+                setLoginEmail(email)
             })
             .catch(error => {
                 setError(error.message);
@@ -38,7 +44,7 @@ const Login = () => {
                 const user = result.user;
                 console.log(user);
                 setError(null);
-                navigate(from, { replace: true })
+                setLoginEmail(user.email)
             })
             .catch(error => {
                 setError(error.message);

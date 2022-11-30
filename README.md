@@ -1,6 +1,6 @@
 # **Sumu's Cuisine  Client**
 
-> # Live Link:  
+> # Live Link: https://sumu-s-cuisine.firebaseapp.com/
 > # Git Repo for API:  
 > # Live API:  
 

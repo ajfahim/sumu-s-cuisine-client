@@ -1,14 +1,44 @@
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import axios from 'axios';
 import React, { useContext, useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { FcGoogle } from "react-icons/fc";
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthProvider';
+import useToken from '../../../hooks/useToken';
 
 const Registration = () => {
 
     const { signUp, profileUpdate, googleLogin } = useContext(AuthContext);
-    const [error, setError] = useState(null)
+    const [error, setError] = useState(null);
+    const [tokenEmail, setTokenEmail] = useState('');
+    const [token] = useToken(tokenEmail)
+
+    const navigate = useNavigate();
+
+    if (token) {
+        navigate("/")
+    }
+    const queryClient = useQueryClient()
+
+    const saveUserToDb = async (data) => {
+        const res = await axios.post("http://localhost:5000/users", data)
+        return res.data;
+
+    }
+
+    const userMutation = useMutation({
+        mutationFn: saveUserToDb,
+        onSuccess: (data, { email }) => {
+
+            console.log("onSuccess: ", email);
+            setTokenEmail(email)
+
+            queryClient.invalidateQueries({ queryKey: ["users"] })
+        }
+    })
+
 
     const handleSignUp = (event) => {
         event.preventDefault();
@@ -17,14 +47,16 @@ const Registration = () => {
         const name = form.name.value;
         const photoUrl = form.photoUrl.value;
         const password = form.password.value;
+
         const handleProfileUpdate = (name, photoUrl) => {
             const profile = {
                 displayName: name,
                 photoURL: photoUrl,
             }
             profileUpdate(profile)
-                .then(result => {
-                    console.log(result)
+                .then(() => {
+
+                    userMutation.mutate({ name, email, photoUrl })
                 })
                 .catch(error => console.log(error))
         }
@@ -33,6 +65,7 @@ const Registration = () => {
                 const user = result.user;
                 setError(null)
                 handleProfileUpdate(name, photoUrl)
+
                 console.log(user);
             })
             .catch(error => {
@@ -44,6 +77,8 @@ const Registration = () => {
     const handleGoogleLogin = () => {
         googleLogin()
             .then(result => {
+                const user = result.user;
+                userMutation.mutate({ name: user.displayName, email: user.email, photoUrl: user.photoURL })
                 setError(null);
             })
             .catch(error => {
