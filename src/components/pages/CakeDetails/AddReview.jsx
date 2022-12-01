@@ -30,7 +30,7 @@ const AddReview = ({ cakeDetail }) => {
             review: data.reviewDescription,
             photoURL: user?.photoURL,
             createdBy: user?.displayName,
-            createdAt: format(Date.now(), "PP")
+            createdAt: new Date()
         }
         reviewMutation.mutate(postData);
         reviewMutation.onSuccess()

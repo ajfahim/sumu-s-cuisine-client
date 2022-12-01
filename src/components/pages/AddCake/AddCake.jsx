@@ -37,8 +37,9 @@ const AddCake = () => {
             title: data.title,
             description: data.description,
             imageURL,
+            price: data.price,
             addedBy: user?.email,
-            createdAt: format(new Date(), "PP"),
+            createdAt: new Date(),
         }
 
         racipeMutation.mutate(racipeData)
@@ -73,6 +74,20 @@ const AddCake = () => {
 
                         <div className="form-control">
                             <label className="label">
+                                <span className="label-text">Price</span>
+                            </label>
+                            <input type="text" {...register("price", { required: "Title is Required", })} name='price' className="input input-bordered" />
+                        </div>
+                        <label className="label">
+                            <span className="label-text text-red-500">
+                                {
+                                    errors.price && errors.price?.message
+                                }
+                            </span>
+                        </label>
+
+                        <div className="form-control">
+                            <label className="label">
                                 <span className="label-text">Description</span>
                             </label>
                             <textarea {...register("description", { required: "Description is Required", })} name='description' className="h-32 textarea textarea-bordered" />
@@ -94,7 +109,7 @@ const AddCake = () => {
                         </div>
 
                         <div className="form-control mt-10">
-                            <button className="btn btn-accent">Add Racipe</button>
+                            <button className="btn btn-accent">Add Cake</button>
                         </div>
                     </form>
                 </div>

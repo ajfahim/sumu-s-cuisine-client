@@ -6,12 +6,7 @@ import Nav from '../components/shared/Nav/Nav';
 import { AuthContext } from '../contexts/AuthProvider';
 
 const Main = () => {
-    const { loading } = useContext(AuthContext)
-    if (loading) {
-        return <div className='mt-[30vh]'>
-            <Loading></Loading>
-        </div>
-    }
+
     return (
         <div>
             <Nav></Nav>

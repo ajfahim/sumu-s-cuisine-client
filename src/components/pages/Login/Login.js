@@ -12,6 +12,8 @@ const Login = () => {
     const [loginEmail, setLoginEmail] = useState('')
     const [token] = useToken(loginEmail)
 
+
+    console.log("sflslflf: ", loginEmail)
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
@@ -43,9 +45,10 @@ const Login = () => {
         googleLogin()
             .then(result => {
                 const user = result.user;
-                console.log(user);
+                console.log("sdfljsfjlsjflsjf;lsjf;slfjslkjfslfj: ", user);
+                setLoginEmail(user.email);
                 setError(null);
-                setLoginEmail(user.email)
+
             })
             .catch(error => {
                 setError(error.message);

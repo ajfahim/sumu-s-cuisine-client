@@ -4,6 +4,7 @@ import AllCakes from "../../components/pages/AllCakes/AllCakes";
 import CakeDetails from "../../components/pages/CakeDetails/CakeDetails";
 import Home from "../../components/pages/Home/Home";
 import Login from "../../components/pages/Login/Login";
+import MyReviews from "../../components/pages/MyReviews/MyReviews";
 import Registration from "../../components/pages/Registration/Registration";
 import Main from "../../layout/Main";
 import PrivateRoute from "../PrivateRoutes/PrivateRoute";
@@ -28,6 +29,10 @@ export const router = createBrowserRouter([
             {
                 path: "/add-cake",
                 element: <PrivateRoute><AddCake></AddCake></PrivateRoute>
+            },
+            {
+                path: "/my-reviews",
+                element: <PrivateRoute><MyReviews></MyReviews></PrivateRoute>
             },
             {
                 path: "/all-cakes",

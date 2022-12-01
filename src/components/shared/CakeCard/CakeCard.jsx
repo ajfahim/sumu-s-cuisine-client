@@ -7,8 +7,8 @@ const CakeCard = ({ cake }) => {
 
     return (
         <div>
-            <div className="card card-compact sm:max-w-md bg-base-100 shadow-xl">
-                <figure className='max-h-[370px]'><PhotoViewer image={cake.imageURL}></PhotoViewer></figure>
+            <div className="card card-compact sm:max-w-md min-w-[448px] bg-base-100 shadow-xl">
+                <figure className='max-h-[370px] min-h-[370px]'><PhotoViewer image={cake.imageURL}></PhotoViewer></figure>
                 {/* <figure><img className='min-h-16 max-h-[370px]' src={cake.imageURL} alt="Shoes" /></figure> */}
                 <div className="card-body ">
                     <h2 className="card-title">{cake.title}</h2>
