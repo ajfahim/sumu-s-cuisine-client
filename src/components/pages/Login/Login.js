@@ -20,6 +20,7 @@ const Login = () => {
         navigate(from, { replace: true });
     }
     const handleLogin = (event) => {
+
         event.preventDefault();
         const form = event.target;
         const email = form.email.value;

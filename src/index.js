@@ -13,6 +13,7 @@ axios.interceptors.request.use((request) => {
   return request
 },
   (error) => {
+    console.error("axios interceptor error: ", error)
     return Promise.reject(error);
   })
 
