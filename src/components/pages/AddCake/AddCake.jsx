@@ -1,4 +1,4 @@
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
 import axios from 'axios';
 import { format } from 'date-fns';
 import React, { useContext } from 'react';
@@ -7,20 +7,22 @@ import toast from 'react-hot-toast';
 import { AuthContext } from '../../../contexts/AuthProvider';
 import { imageUploader } from '../../../utils/ImageUploader';
 
-const AddRacipe = () => {
+const AddCake = () => {
 
     const { handleSubmit, register, formState: { errors } } = useForm();
     const { user } = useContext(AuthContext);
+    const queryClient = useQueryClient()
 
     const addRacipeToDB = async (data) => {
-        const res = await axios.post("http://localhost:5000/racipes", data);
+        const res = await axios.post("http://localhost:5000/cakes", data);
         return res.data
     }
 
     const racipeMutation = useMutation({
         mutationFn: addRacipeToDB,
         onSuccess: () => {
-            toast.success("New racipe added successfully")
+            toast.success("New racipe added successfully");
+            queryClient.invalidateQueries({ queryKey: ["cakes"] })
         }
     })
 
@@ -92,4 +94,4 @@ const AddRacipe = () => {
     );
 };
 
-export default AddRacipe;
+export default AddCake;

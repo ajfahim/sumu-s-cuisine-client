@@ -16,11 +16,12 @@ const Nav = () => {
 
     const menuItems = <>
         <li><Link to='/'>Home</Link></li>
+        <li><Link to='/all-cakes'>All Cakes</Link></li>
         {
             user?.email ?
                 <>
-                    <li><Link to='/myreviews'>My Reviews</Link></li>
-                    <li><Link to='/add-racipe'>Add Racipe</Link></li>
+                    <li><Link to='/my-reviews'>My Reviews</Link></li>
+                    <li><Link to='/add-cake'>Add Cake</Link></li>
                     <li><Link onClick={handleLogOut}>Logout</Link></li>
                 </> :
                 <li><Link to='/login'>Login</Link></li>
@@ -30,7 +31,7 @@ const Nav = () => {
 
     </>
     return (
-        <div className="navbar bg-base-100 px-10">
+        <div className="navbar bg-base-100 px-10 shadow-xl">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">

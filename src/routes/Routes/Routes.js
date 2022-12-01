@@ -1,5 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
-import AddRacipe from "../../components/pages/AddRacipe/AddRacipe";
+import AddCake from "../../components/pages/AddCake/AddCake";
+import AllCakes from "../../components/pages/AllCakes/AllCakes";
 import Home from "../../components/pages/Home/Home";
 import Login from "../../components/pages/Login/Login";
 import Registration from "../../components/pages/Registration/Registration";
@@ -24,8 +25,12 @@ export const router = createBrowserRouter([
                 element: <Registration></Registration>
             },
             {
-                path: "/add-racipe",
-                element: <PrivateRoute><AddRacipe></AddRacipe></PrivateRoute>
+                path: "/add-cake",
+                element: <PrivateRoute><AddCake></AddCake></PrivateRoute>
+            },
+            {
+                path: "/all-cakes",
+                element: <AllCakes></AllCakes>
             }
         ]
     }
