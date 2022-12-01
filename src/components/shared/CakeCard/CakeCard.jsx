@@ -7,17 +7,17 @@ const CakeCard = ({ cake }) => {
 
     return (
         <div>
-            <div className="card card-compact w-96 bg-base-100 shadow-xl">
-                <figure><PhotoViewer image={cake.imageURL}></PhotoViewer></figure>
+            <div className="card card-compact sm:max-w-md bg-base-100 shadow-xl">
+                <figure className='max-h-[370px]'><PhotoViewer image={cake.imageURL}></PhotoViewer></figure>
                 {/* <figure><img className='min-h-16 max-h-[370px]' src={cake.imageURL} alt="Shoes" /></figure> */}
-                <div className="card-body">
+                <div className="card-body ">
                     <h2 className="card-title">{cake.title}</h2>
 
                     {cake.description.length > 50
                         ?
-                        <p>{cake.description.slice(0, 50)}...</p>
+                        <p className='min-h-12'>{cake.description.slice(0, 50)}...</p>
                         :
-                        <p>{cake.description}</p>
+                        <p className='min-h-12'>{cake.description}</p>
                     }
                     <div className="card-actions justify-between items-center mt-3">
 

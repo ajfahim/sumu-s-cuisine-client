@@ -35,6 +35,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/cake/:id",
+                loader: ({ params }) => fetch(`http://localhost:5000/cake/${params.id}`),
                 element: <CakeDetails></CakeDetails>
             }
         ]

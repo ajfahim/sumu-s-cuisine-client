@@ -5,7 +5,7 @@ const PhotoViewer = ({ image }) => {
     return (
         <PhotoProvider>
             <PhotoView src={image}>
-                <img src={image} alt="" />
+                <img className='w-full h-full object-cover object-center' src={image} alt="" />
             </PhotoView>
         </PhotoProvider>
     );

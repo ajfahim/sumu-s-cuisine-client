@@ -31,7 +31,7 @@ const AllCakes = () => {
                 <h1 className="my-10 text-primary text-2xl font-black">All Cakes</h1>
                 <div className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 justify-items-center gap-10'>
                     {
-                        cakeData.map(cake => <CakeCard key={cake._id} cake={cake}></CakeCard>)
+                        cakeData?.map(cake => <CakeCard key={cake._id} cake={cake}></CakeCard>)
                     }
                 </div>
             </div>
