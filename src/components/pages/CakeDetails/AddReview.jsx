@@ -1,18 +1,39 @@
-import { useMutation } from '@tanstack/react-query';
-import React from 'react';
+import { useMutation, useQueryClient } from '@tanstack/react-query';
+import axios from 'axios';
+import { format } from 'date-fns';
+import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
+import { AuthContext } from '../../../contexts/AuthProvider';
 
-const AddReview = () => {
-    const { handleSubmit, register, formState: { errors } } = useForm()
+const AddReview = ({ cakeDetail }) => {
+    const { handleSubmit, register, reset, formState: { errors } } = useForm()
+    const { user } = useContext(AuthContext)
+    const queryClient = useQueryClient();
 
-    const addReview = () => {
-
+    const addReview = async (data) => {
+        const res = await axios.post("http://localhost:5000/reviews", data);
+        return res.data
     }
     const reviewMutation = useMutation({
-        mutationFn: addReview
+        mutationFn: addReview,
+        onSuccess: () => {
+            toast.success("Review added");
+            reset({ reviewDescription: "" })
+            queryClient.invalidateQueries({ queryKey: ["reviews"] })
+        }
     })
     const handleReviewSubmit = (data) => {
         console.log(data)
+        const postData = {
+            cake: cakeDetail._id,
+            review: data.reviewDescription,
+            photoURL: user?.photoURL,
+            createdBy: user?.displayName,
+            createdAt: format(Date.now(), "PP")
+        }
+        reviewMutation.mutate(postData);
+        reviewMutation.onSuccess()
     }
     return (
         <div className='my-5 shadow-xl p-10 rounded-xl'>
