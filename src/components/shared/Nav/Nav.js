@@ -20,7 +20,7 @@ const Nav = () => {
             user?.email ?
                 <>
                     <li><Link to='/myreviews'>My Reviews</Link></li>
-                    <li><Link to=''>Add Racipe</Link></li>
+                    <li><Link to='/add-racipe'>Add Racipe</Link></li>
                     <li><Link onClick={handleLogOut}>Logout</Link></li>
                 </> :
                 <li><Link to='/login'>Login</Link></li>
