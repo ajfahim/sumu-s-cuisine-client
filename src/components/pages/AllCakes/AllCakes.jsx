@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import axios from 'axios';
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import CakeCard from '../../shared/CakeCard/CakeCard';
 import Loading from '../../shared/Loading/Loading';
 
@@ -22,12 +23,19 @@ const AllCakes = () => {
     console.log(cakeData)
 
     return (
-        <div className='w-4/5 mx-auto'>
-            <h1 className="my-10 text-primary text-2xl font-black">All Cakes</h1>
-            {
-                cakeData.map(cake => <CakeCard key={cake._id} cake={cake}></CakeCard>)
-            }
-        </div>
+        <>
+            <Helmet>
+                <title>Sumu's Cuisine | All Cakes</title>
+            </Helmet>
+            <div className='w-4/5 mx-auto'>
+                <h1 className="my-10 text-primary text-2xl font-black">All Cakes</h1>
+                <div className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 justify-items-center gap-10'>
+                    {
+                        cakeData.map(cake => <CakeCard key={cake._id} cake={cake}></CakeCard>)
+                    }
+                </div>
+            </div>
+        </>
     );
 };
 

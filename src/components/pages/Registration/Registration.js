@@ -90,7 +90,7 @@ const Registration = () => {
     return (
         <>
             <Helmet>
-                <title>Sumu's Cuisine-Registration</title>
+                <title>Sumu's Cuisine | Registration</title>
             </Helmet>
             <div className="hero my-20">
                 <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">

@@ -56,7 +56,7 @@ const Login = () => {
     return (
         <>
             <Helmet>
-                <title>Sumu's Cuisine-Login</title>
+                <title>Sumu's Cuisine | Login</title>
             </Helmet>
             <div className="hero my-20">
 

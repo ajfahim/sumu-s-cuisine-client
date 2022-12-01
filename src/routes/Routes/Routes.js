@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import AddCake from "../../components/pages/AddCake/AddCake";
 import AllCakes from "../../components/pages/AllCakes/AllCakes";
+import CakeDetails from "../../components/pages/CakeDetails/CakeDetails";
 import Home from "../../components/pages/Home/Home";
 import Login from "../../components/pages/Login/Login";
 import Registration from "../../components/pages/Registration/Registration";
@@ -31,6 +32,10 @@ export const router = createBrowserRouter([
             {
                 path: "/all-cakes",
                 element: <AllCakes></AllCakes>
+            },
+            {
+                path: "/cake/:id",
+                element: <CakeDetails></CakeDetails>
             }
         ]
     }
