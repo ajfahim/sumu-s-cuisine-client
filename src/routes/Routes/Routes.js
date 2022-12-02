@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import AddCake from "../../components/pages/AddCake/AddCake";
 import AllCakes from "../../components/pages/AllCakes/AllCakes";
+import Blog from "../../components/pages/Blog/Blog";
 import CakeDetails from "../../components/pages/CakeDetails/CakeDetails";
 import Home from "../../components/pages/Home/Home";
 import Login from "../../components/pages/Login/Login";
@@ -19,6 +20,10 @@ export const router = createBrowserRouter([
                 element: <Home></Home>
             },
             {
+                path: "/blog",
+                element: <Blog></Blog>
+            },
+            {
                 path: '/login',
                 element: <Login></Login>
             },
@@ -32,6 +37,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/my-reviews",
+
                 element: <PrivateRoute><MyReviews></MyReviews></PrivateRoute>
             },
             {

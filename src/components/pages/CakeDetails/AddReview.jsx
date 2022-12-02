@@ -29,7 +29,10 @@ const AddReview = ({ cakeDetail }) => {
             cake: cakeDetail._id,
             review: data.reviewDescription,
             photoURL: user?.photoURL,
-            createdBy: user?.displayName,
+            createdBy: {
+                name: user?.displayName,
+                email: user?.email
+            },
             createdAt: new Date()
         }
         reviewMutation.mutate(postData);

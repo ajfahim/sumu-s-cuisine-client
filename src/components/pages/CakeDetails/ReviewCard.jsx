@@ -20,7 +20,7 @@ const ReviewCard = ({ review }) => {
                     <div className='flex flex-col'>
                         <div className='flex mt-2 font-normal text-md items-center'>
                             <FiUser size={20}></FiUser>
-                            <p className='ml-2'>{review.createdBy}</p>
+                            <p className='ml-2'>{review?.createdBy?.name}</p>
                         </div>
                         <div className='flex mt-2 font-normal text-md items-center'>
                             <BsCalendarWeek size={20}></BsCalendarWeek>
