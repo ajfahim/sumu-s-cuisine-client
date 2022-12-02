@@ -17,7 +17,7 @@ const AddCake = () => {
     const navigate = useNavigate()
 
     const addRacipeToDB = async (data) => {
-        const res = await axios.post("http://localhost:5000/cakes", data);
+        const res = await axios.post("https://sumus-cuisine-server.vercel.app/cakes", data);
         return res.data
     }
 

@@ -46,7 +46,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: "/cake/:id",
-                loader: ({ params }) => fetch(`http://localhost:5000/cake/${params.id}`),
+                loader: ({ params }) => fetch(`https://sumus-cuisine-server.vercel.app/cake/${params.id}`),
                 element: <CakeDetails></CakeDetails>
             }
         ]

@@ -8,7 +8,7 @@ import Loading from '../../../shared/Loading/Loading';
 const Featured = () => {
 
     const getCakeData = async () => {
-        const res = await axios.get(`http://localhost:5000/cakes?limit=3`);
+        const res = await axios.get(`https://sumus-cuisine-server.vercel.app/cakes?limit=3`);
         return res.data
     }
 

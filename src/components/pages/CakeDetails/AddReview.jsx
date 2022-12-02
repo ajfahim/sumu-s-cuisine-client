@@ -12,7 +12,7 @@ const AddReview = ({ cakeDetail }) => {
     const queryClient = useQueryClient();
 
     const addReview = async (data) => {
-        const res = await axios.post("http://localhost:5000/reviews", data);
+        const res = await axios.post("https://sumus-cuisine-server.vercel.app/reviews", data);
         return res.data
     }
     const reviewMutation = useMutation({

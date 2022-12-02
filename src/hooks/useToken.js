@@ -6,7 +6,7 @@ const useToken = email => {
     const [resData, setResData] = useState(null)
 
     const getJwt = async (email) => {
-        const res = await axios.get(`http://localhost:5000/jwt?email=${email}`);
+        const res = await axios.get(`https://sumus-cuisine-server.vercel.app/jwt?email=${email}`);
         console.log(res.data)
         setResData(res.data)
     }

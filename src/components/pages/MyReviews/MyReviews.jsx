@@ -12,7 +12,7 @@ const MyReviews = () => {
     const [review, setReview] = useState('');
 
     const getMyReviews = async () => {
-        const res = await axios.get(`http://localhost:5000/reviews/user/${user?.email}`);
+        const res = await axios.get(`https://sumus-cuisine-server.vercel.app/reviews/user/${user?.email}`);
         return res.data
     }
     const { data: myReview, } = useQuery({

@@ -68,10 +68,6 @@ const Blog = () => {
 
                     </p>
 
-
-
-
-
                     <p>If NodeJS can process the request without I/O blocking then the event loop would itself process the request and sends the response back to the client by itself. But, it is possible to process multiple requests parallelly using the NodeJS cluster module or worker_threads module.</p>
                 </div>
             </div>

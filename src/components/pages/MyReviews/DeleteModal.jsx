@@ -7,7 +7,7 @@ const DeleteModal = ({ review }) => {
 
 
     const deleteReview = async (data) => {
-        const res = await axios.delete(`http://localhost:5000/reviews/${data._id}`)
+        const res = await axios.delete(`https://sumus-cuisine-server.vercel.app/reviews/${data._id}`)
         return res.data
     }
     const queryClient = useQueryClient()

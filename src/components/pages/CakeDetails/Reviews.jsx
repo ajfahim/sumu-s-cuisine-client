@@ -10,7 +10,7 @@ const Reviews = ({ cakeDetail }) => {
     const { user } = useContext(AuthContext);
 
     const getReviewsByCakeId = async () => {
-        const res = await axios.get(`http://localhost:5000/reviews/cake/${cakeDetail._id}`);
+        const res = await axios.get(`https://sumus-cuisine-server.vercel.app/reviews/cake/${cakeDetail._id}`);
         return res.data
     }
 

@@ -23,7 +23,7 @@ const Registration = () => {
     const queryClient = useQueryClient()
 
     const saveUserToDb = async (data) => {
-        const res = await axios.post("http://localhost:5000/users", data)
+        const res = await axios.post("https://sumus-cuisine-server.vercel.app/users", data)
         return res.data;
 
     }

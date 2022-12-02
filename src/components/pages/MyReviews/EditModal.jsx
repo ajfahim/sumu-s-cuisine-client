@@ -7,7 +7,7 @@ const EditModal = ({ review }) => {
 
     const queryClient = useQueryClient();
     const updateReview = async (data) => {
-        const res = await axios.put(`http://localhost:5000/reviews/${review._id}`, data);
+        const res = await axios.put(`https://sumus-cuisine-server.vercel.app/reviews/${review._id}`, data);
         return res.data
     }
 
