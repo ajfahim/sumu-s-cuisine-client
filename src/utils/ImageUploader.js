@@ -16,6 +16,7 @@ export const imageUploader = (image) => {
                     console.log(imgData.data.url);
                     resolve(imgData.data.url)
                 }
+
             })
 
     })
